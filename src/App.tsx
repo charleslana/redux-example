@@ -1,9 +1,16 @@
 import React from 'react';
+import {Provider} from 'react-redux';
+import {store} from './store/store';
+import Sidebar from "./components/sidebar/Sidebar";
+import User from "./components/user/User";
 
 function App() {
     return (
         <div>
-            <h1>Hello Dev</h1>
+            <Provider store={store}>
+                <Sidebar/>
+                <User/>
+            </Provider>
         </div>
     );
 }

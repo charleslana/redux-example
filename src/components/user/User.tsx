@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {withRouter, RouteComponentProps} from 'react-router-dom';
 import UsersInterface from "../../interfaces/UsersInterface";
 
-export class User extends Component<UsersInterface> {
+export class User extends Component<UsersInterface & RouteComponentProps> {
     render() {
         return (
             <div>
@@ -20,4 +21,6 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(User);
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps)(User)
+);
